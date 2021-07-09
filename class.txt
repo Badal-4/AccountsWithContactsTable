@@ -1,0 +1,13 @@
+public class accController
+{
+    @AuraEnabled
+    public static List<Account> getRecords()
+    {
+       return [Select name,Phone from Account where type != null];
+    }
+    @AuraEnabled
+    public static List<Contact> getCon(String accountId)
+    {
+        return [Select FirstName,LastName from Contact where AccountId =: accountId];
+    }
+}
